@@ -1,12 +1,12 @@
 from torch.nn.modules.batchnorm import BatchNorm2d
 from torchvision.ops.misc import FrozenBatchNorm2d
 
-import timm
-from timm.utils.model import freeze, unfreeze
+import timm054
+from timm054.utils.model import freeze, unfreeze
 
 
 def test_freeze_unfreeze():
-    model = timm.create_model('resnet18')
+    model = timm054.create_model('resnet18')
 
     # Freeze all
     freeze(model)

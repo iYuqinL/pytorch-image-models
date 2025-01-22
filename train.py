@@ -28,14 +28,14 @@ import torch.nn as nn
 import torchvision.utils
 from torch.nn.parallel import DistributedDataParallel as NativeDDP
 
-from timm.data import create_dataset, create_loader, resolve_data_config, Mixup, FastCollateMixup, AugMixDataset
-from timm.models import create_model, safe_model_name, resume_checkpoint, load_checkpoint,\
+from timm054.data import create_dataset, create_loader, resolve_data_config, Mixup, FastCollateMixup, AugMixDataset
+from timm054.models import create_model, safe_model_name, resume_checkpoint, load_checkpoint,\
     convert_splitbn_model, model_parameters
-from timm.utils import *
-from timm.loss import *
-from timm.optim import create_optimizer_v2, optimizer_kwargs
-from timm.scheduler import create_scheduler
-from timm.utils import ApexScaler, NativeScaler
+from timm054.utils import *
+from timm054.loss import *
+from timm054.optim import create_optimizer_v2, optimizer_kwargs
+from timm054.scheduler import create_scheduler
+from timm054.utils import ApexScaler, NativeScaler
 
 try:
     from apex import amp

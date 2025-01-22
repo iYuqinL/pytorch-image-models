@@ -18,10 +18,10 @@ from collections import OrderedDict
 from contextlib import suppress
 from functools import partial
 
-from timm.models import create_model, is_model, list_models
-from timm.optim import create_optimizer_v2
-from timm.data import resolve_data_config
-from timm.utils import AverageMeter, setup_default_logging
+from timm054.models import create_model, is_model, list_models
+from timm054.optim import create_optimizer_v2
+from timm054.data import resolve_data_config
+from timm054.utils import AverageMeter, setup_default_logging
 
 
 has_apex = False

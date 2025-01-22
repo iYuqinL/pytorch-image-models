@@ -10,10 +10,10 @@ try:
 except ImportError:
     has_fx_feature_extraction = False
 
-import timm
-from timm import list_models, create_model, set_scriptable, has_model_default_key, is_model_default_key, \
+import timm054
+from timm054 import list_models, create_model, set_scriptable, has_model_default_key, is_model_default_key, \
     get_model_default_value
-from timm.models.fx_features import _leaf_modules, _autowrap_functions    
+from timm054.models.fx_features import _leaf_modules, _autowrap_functions    
 
 if hasattr(torch._C, '_jit_set_profiling_executor'):
     # legacy executor is too slow to compile large models for unit tests
@@ -156,7 +156,7 @@ def test_model_default_cfgs(model_name, batch_size):
         model.reset_classifier(0, '')  # reset classifier and set global pooling to pass-through
         outputs = model.forward(input_tensor)
         assert len(outputs.shape) == 4
-        if not isinstance(model, timm.models.MobileNetV3) and not isinstance(model, timm.models.GhostNet):
+        if not isinstance(model, timm054.models.MobileNetV3) and not isinstance(model, timm054.models.GhostNet):
             # FIXME mobilenetv3/ghostnet forward_features vs removed pooling differ
             assert outputs.shape[-1] == pool_size[-1] and outputs.shape[-2] == pool_size[-2]
 
@@ -165,7 +165,7 @@ def test_model_default_cfgs(model_name, batch_size):
             model = create_model(model_name, pretrained=False, num_classes=0, global_pool='').eval()
             outputs = model.forward(input_tensor)
             assert len(outputs.shape) == 4
-            if not isinstance(model, timm.models.MobileNetV3) and not isinstance(model, timm.models.GhostNet):
+            if not isinstance(model, timm054.models.MobileNetV3) and not isinstance(model, timm054.models.GhostNet):
                 # FIXME mobilenetv3/ghostnet forward_features vs removed pooling differ
                 assert outputs.shape[-1] == pool_size[-1] and outputs.shape[-2] == pool_size[-2]
 
